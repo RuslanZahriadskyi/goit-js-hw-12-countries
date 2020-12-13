@@ -17,12 +17,9 @@ function renderCountry(country) {
 }
 
 function checkFoundItems(countries) {
-  //   if (countries.length === undefined) {
-  //     errorNotifications('Nothing was found for your query');
-  //   }
   if (countries.length > 10) {
     errorNotifications(
-      'Too many matches found. Please enter a more specific query!',
+      'Too many matches found. Please enter more specific request!',
     );
     return;
   }

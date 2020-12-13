@@ -9,7 +9,7 @@ function fetchCountries(searchQuery) {
 
       if (res.status === 404) {
         return errorsNotifications(
-          'Nothing was found for your query. Enter the correct country name',
+          'Nothing was found for your request. Enter the correct country name',
         );
       }
       if (res.ok) {
