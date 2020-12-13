@@ -146,7 +146,7 @@ input {
 
 .country__container {
   background-color: #fff;
-  width: 850px;
+  width: 1200px;
   margin: 0 auto;
 }
 
@@ -191,9 +191,10 @@ input {
 .img__container {
   margin-left: auto;
   margin-right: 10px;
+  width: 100%;
 }
 
 .country__img {
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: auto;
 }

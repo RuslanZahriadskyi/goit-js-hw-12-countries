@@ -15,7 +15,11 @@ function findCountry(e) {
   if (!currentInput) {
     return;
   }
-  fetchCountries(currentInput).then(checkFoundItems);
+  fetchCountries(currentInput)
+    .then(checkFoundItems)
+    .catch(err => {
+      return err;
+    });
 }
 
 function onFindCountryClick(e) {

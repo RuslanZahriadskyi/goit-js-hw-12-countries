@@ -5,13 +5,20 @@ function fetchCountries(searchQuery) {
 
   return fetch(`${url}${searchQuery}`)
     .then(res => {
-      // console.log(res.json()
-      //   console.log(res.ok);
-      if (res.ok) return res.json();
+      //   console.log(res.json());
+
+      if (res.status === 404) {
+        return errorsNotifications(
+          'Nothing was found for your query. Enter the correct country name',
+        );
+      }
+      if (res.ok) {
+        return res.json();
+      }
     })
-    .catch(err => {
-      console.log('error', err);
-      //   errorsNotifications('Enter a valid country name');
+    .catch(error => {
+      errorsNotifications('Something went wrong');
+      return error;
     });
 }
 
