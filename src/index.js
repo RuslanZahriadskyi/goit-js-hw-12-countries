@@ -1,8 +1,9 @@
 import './styles.css';
-import fetchCountries from './js/fetchCountries';
+import api from './js/fetchCountries';
 import checkFoundItems from './js/render';
 import refs from './js/refs';
 import refreshSearch from './js/refreshSearch';
+import errorsNotifications from './js/notifications';
 
 let debounce = require('lodash.debounce');
 
@@ -15,11 +16,7 @@ function findCountry(e) {
   if (!currentInput) {
     return;
   }
-  fetchCountries(currentInput)
-    .then(checkFoundItems)
-    .catch(err => {
-      return err;
-    });
+  api.fetchCountries(currentInput).then(checkFoundItems).catch(onFetchError);
 }
 
 function onFindCountryClick(e) {
@@ -32,5 +29,11 @@ function onFindCountryClick(e) {
   //   console.dir(e.target);
   //   console.log(inputRef.value);
 
-  fetchCountries(currentInput).then(checkFoundItems);
+  api.fetchCountries(currentInput).then(checkFoundItems);
+}
+
+function onFetchError() {
+  errorsNotifications(
+    'Nothing was found for your request. Enter the correct country name',
+  );
 }
