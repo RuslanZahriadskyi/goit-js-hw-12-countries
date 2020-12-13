@@ -1,0 +1,199 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  background-color: rgb(19, 21, 150);
+}
+
+.title {
+  text-align: center;
+  color: #3cff15;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.list__countries {
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  list-style: none;
+}
+
+input {
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.row span {
+  position: relative;
+  display: inline-block;
+  width: 90%;
+  margin: 0 0 0 50px;
+}
+
+.countries__found {
+  width: 90%;
+  margin: 0 0 0 50px;
+}
+
+.swing {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  padding: 11.6px 0 11.6px 15px;
+  font-family: 'Open Sans', sans;
+  font-weight: 400;
+  color: #120847;
+  background: #efefef;
+  border: 0;
+  border-radius: 3px;
+  outline: 0;
+  text-indent: 125px;
+  transition: all 0.3s ease-in-out;
+}
+
+.swing + label {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 15px;
+  text-shadow: 0 1px 0 rgba(19, 74, 70, 0.4);
+  background: #7ab893;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  transform-origin: 2px 2px;
+  transform: rotate(0);
+  animation: swing-back 0.4s 1 ease-in-out;
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(0);
+  }
+  20% {
+    transform: rotate(116deg);
+  }
+  40% {
+    transform: rotate(60deg);
+  }
+  60% {
+    transform: rotate(98deg);
+  }
+  80% {
+    transform: rotate(76deg);
+  }
+  100% {
+    transform: rotate(82deg);
+  }
+}
+@keyframes swing-back {
+  0% {
+    transform: rotate(82deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+.swing:focus,
+.swing:active {
+  color: #0a0046;
+  text-indent: 0;
+  background: #fff;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+-webkit- input-placeholder {
+  color: #aaa;
+}
+
+.swing:focus + label,
+.swing:active + label {
+  animation: swing 1.4s 1 ease-in-out;
+  transform: rotate(82deg);
+}
+
+.countries__list {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 0px;
+  margin-top: 1px;
+  cursor: pointer;
+  font-family: 'Open Sans', sans;
+  font-weight: 400;
+  color: #377d6a;
+  background: #efefef;
+  border: 0;
+  border-radius: 3px;
+  outline: 0;
+  text-indent: 70px;
+  transition: all 0.3s ease-in-out;
+}
+
+.country__container {
+  background-color: #fff;
+  width: 850px;
+  margin: 0 auto;
+}
+
+.country__name {
+  padding-top: 20px;
+
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.container {
+  display: flex;
+}
+
+.information__container {
+  margin-left: 20px;
+  width: 50%;
+  height: 100%;
+}
+
+.country__capital,
+.country__population {
+  font-size: 25px;
+}
+
+/* .country__languages {
+  list-style: none; */
+/* padding: 0;
+} */
+
+.general__information {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.country__language {
+  padding-left: 15px;
+  font-size: 25px;
+}
+
+.img__container {
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.country__img {
+  width: 400px;
+  height: 400px;
+}
