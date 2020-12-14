@@ -3,7 +3,8 @@ import refs from './refs';
 function refreshSearch(e) {
   const currentInput = e.target;
 
-  refreshSearchCountries;
+  refreshSearchCountries();
+  refreshSearchCountry();
   currentInput.value = '';
   refs.countriesRef.classList.add('is-hidden');
   refs.countryContainerRef.classList.add('is-hidden');
