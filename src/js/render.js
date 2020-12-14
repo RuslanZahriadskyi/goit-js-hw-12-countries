@@ -3,24 +3,11 @@ import countryTpl from '../templates/country.hbs';
 import errorNotifications from './notifications';
 import refs from './refs';
 
-function renderFindCountries(countries) {
-  //   console.log(countriesTpl(countries));
-  refs.countriesRef.innerHTML = countriesTpl(countries);
-  refs.countriesRef.classList.remove('is-hidden');
-}
-
-function renderCountry(country) {
-  //   console.log(countryTpl(country));
-  refs.countryContainerRef.innerHTML = countryTpl(country);
-  refs.countryContainerRef.classList.remove('is-hidden');
-  refs.countriesRef.classList.add('is-hidden');
-}
-
-function checkFoundItems(countries) {
+export default function checkFoundItems(countries) {
   if (countries.length === undefined) {
     return error;
   }
-  console.log(countries.length);
+  // console.log(countries.length);
   if (countries.length > 10) {
     errorNotifications(
       'Too many matches found. Please enter a more specific query!',
@@ -37,4 +24,16 @@ function checkFoundItems(countries) {
   renderFindCountries(countries);
 }
 
-export default checkFoundItems;
+function renderFindCountries(countries) {
+  //   console.log(countriesTpl(countries));
+  refs.countriesRef.innerHTML = countriesTpl(countries);
+  refs.countriesRef.classList.remove('is-hidden');
+}
+
+function renderCountry(country) {
+  // console.log(countryTpl(country));
+  refs.countryContainerRef.innerHTML = countryTpl(country);
+  refs.countryContainerRef.classList.remove('is-hidden');
+  refs.countriesRef.classList.add('is-hidden');
+  refs.countriesRef.innerHTML = '';
+}

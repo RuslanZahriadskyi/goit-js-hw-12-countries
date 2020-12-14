@@ -4,6 +4,8 @@ import checkFoundItems from './js/render';
 import refs from './js/refs';
 import refreshSearch from './js/refreshSearch';
 import errorsNotifications from './js/notifications';
+3;
+import renderCountry from './js/render';
 
 let debounce = require('lodash.debounce');
 
@@ -29,7 +31,7 @@ function onFindCountryClick(e) {
   //   console.dir(e.target);
   //   console.log(inputRef.value);
 
-  api.fetchCountries(currentInput).then(checkFoundItems);
+  api.fetchCountries(currentInput).then(renderCountry);
 }
 
 function onFetchError() {
