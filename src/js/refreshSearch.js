@@ -1,10 +1,20 @@
 import refs from './refs';
 
-function refreshSearch() {
-  refs.inputRef.value = '';
+function refreshSearch(e) {
+  const currentInput = e.target;
+
+  refreshSearchCountries;
+  currentInput.value = '';
   refs.countriesRef.classList.add('is-hidden');
   refs.countryContainerRef.classList.add('is-hidden');
+}
+
+function refreshSearchCountries() {
+  refs.countriesRef.innerHTML = '';
+}
+
+function refreshSearchCountry() {
   refs.countryContainerRef.innerHTML = '';
 }
 
-export default refreshSearch;
+export default { refreshSearch, refreshSearchCountries, refreshSearchCountry };

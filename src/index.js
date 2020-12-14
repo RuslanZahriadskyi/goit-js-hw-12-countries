@@ -1,24 +1,28 @@
 import './styles.css';
-import api from './js/fetchCountries';
-import checkFoundItems from './js/render';
+import fetchCountries from './js/fetchCountries';
+import render from './js/render';
 import refs from './js/refs';
-import refreshSearch from './js/refreshSearch';
-import errorsNotifications from './js/notifications';
-3;
-import renderCountry from './js/render';
-
-let debounce = require('lodash.debounce');
+import refreshFunctions from './js/refreshSearch';
+import debounce from 'lodash.debounce';
 
 refs.inputRef.addEventListener('input', debounce(findCountry, 500));
-refs.inputRef.addEventListener('click', refreshSearch);
+refs.inputRef.addEventListener('click', refreshFunctions.refreshSearch);
 refs.countriesRef.addEventListener('click', onFindCountryClick);
 
 function findCountry(e) {
-  const currentInput = e.target.value;
+  const currentInput = e.target;
+
   if (!currentInput) {
     return;
   }
-  api.fetchCountries(currentInput).then(checkFoundItems).catch(onFetchError);
+
+  if (currentInput.value == '') {
+    return (
+      refreshFunctions.refreshSearchCountries(),
+      refreshFunctions.refreshSearchCountry()
+    );
+  }
+  fetchCountries(currentInput.value).then(render.checkFoundItems);
 }
 
 function onFindCountryClick(e) {
@@ -26,16 +30,7 @@ function onFindCountryClick(e) {
     return;
   }
   const currentInput = e.target.textContent;
-  refs.inputRef.value = currentInput;
+  refs.inputRef.value = currentInput.value;
 
-  //   console.dir(e.target);
-  //   console.log(inputRef.value);
-
-  api.fetchCountries(currentInput).then(renderCountry);
-}
-
-function onFetchError() {
-  errorsNotifications(
-    'Nothing was found for your request. Enter the correct country name',
-  );
+  fetchCountries(currentInput.value).then(render.renderCountry);
 }
