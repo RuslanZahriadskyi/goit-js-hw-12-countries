@@ -30,7 +30,7 @@ function onFindCountryClick(e) {
     return;
   }
   const currentInput = e.target.textContent;
-  refs.inputRef.value = currentInput.value;
+  refs.inputRef.value = currentInput;
 
-  fetchCountries(currentInput.value).then(render.renderCountry);
+  fetchCountries(currentInput).then(render.checkFoundItems);
 }
